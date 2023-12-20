@@ -1,51 +1,46 @@
 package univers;
 
-public class Principal{
-	private String name;
-	private int cash;
-	private Weapon weapon;
+public class Principal extends Perso{
 	private int moralpt;
-	private Perso boss;
+	private Allie allie;
+	public boolean vivant = true;
 	
-	public Principal(String n) {
-	name = n;
-	cash = 100;
-	moralpt = 5;
-	weapon = null;
-	boss = null;
+	public Principal(String n, Weapon w) {
+		super(n,100,"PROFIL",w);
+		moralpt = 5;
+		allie = null;
 	}
 	
-	public String getName() {
-		return this.name;
-	}
-	
-	public void addweapon(Weapon w) {
+	public void changeWeapon(Weapon w) {
 		this.weapon = w;
 	}
 	
-	public void addboss(Perso b) {
-		this.boss = b;
+	public Allie getAllie() {
+		return this.allie;
 	}
 	
-	public void presprinc() {
-		System.out.println("Votre nom: " + this.name);
-		System.out.println("Votre fric: " + this.cash + " francs");
-		System.out.println("Vos points moraux: " + this.moralpt);
-		if (weapon == null) {
-			System.out.println("Votre arme: poings");
+	public int getMoralpt() {
+		return this.moralpt;
+	}
+	
+	public void addAllie(Allie a) {
+		this.allie = a;
+	}
+	
+	@Override
+	public void presentation() {
+		super.presentation();
+		System.out.println("Vos points moraux: " + this.getMoralpt());
+		if (allie == null) {
+			System.out.println("Allie: Aucun");
 		}
 		else {
-			System.out.println("Votre boss: " + this.boss.getName());
-		}
-		if (boss == null) {
-			System.out.println("Votre boss: toi et toi uniquement");
-		}
-		else {
-			System.out.println("Votre boss: " + this.boss.getName());
+			System.out.println("Allie: " + this.allie.getName());
 		}
 	}
 	
 	public void varmp(int m) {
+		System.out.println("");
 		if (m<0) {
 			System.out.println("Vous avez perdu "+ (-m) + " points moraux");
 		}
@@ -53,10 +48,12 @@ public class Principal{
 			System.out.println("Vous avez gagne "+ m + " points moraux");
 		}
 		moralpt = moralpt + m;
-		System.out.println("Vous avez maintenant " + this.moralpt + "points moraux");
+		System.out.println("Vous avez maintenant " + this.moralpt + " points moraux");
 	}
 	
+	@Override
 	public void varc(int c) {
+		System.out.println("");
 		if (c<0) {
 			System.out.println("Vous avez perdu "+ (-c) + " francs");
 		}
@@ -68,11 +65,6 @@ public class Principal{
 	}
 	
 	public void varw(Weapon w) {
-		System.out.println("Changement d'arme!\nAncienne arme: "+weapon+"\nNouvelle arme: "+w);
-		this.weapon = w;
-	}
-	
-	public void presentation() {
-		System.out.println();
+		weapon = w;
 	}
 }

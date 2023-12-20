@@ -1,12 +1,13 @@
 package representation;
 
-import java.util.Scanner;
+import univers.*;
 
-public abstract class Node {
+public abstract class Node implements Event{
 	private String description;
-	private static int nbnoeuds;		//A chaque introduction d'un nouveau noeud, nbnoeuds s'incremente et id prend la valeur nb noeuds.
+	public static int nbnoeuds;
 	public final int id;
 	public Node[] N;
+	public static Principal p;
 	
 	public Node(String description) {
 		Node.nbnoeuds++;
@@ -41,7 +42,5 @@ public abstract class Node {
 	}
 	
 	public abstract Node choosenext();
-	
-	public abstract void setScan(Scanner s);
-	
+		
 }

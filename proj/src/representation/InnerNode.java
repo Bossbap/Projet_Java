@@ -1,18 +1,42 @@
 package representation;
 
-public abstract class InnerNode extends Node{
-	
+public class InnerNode extends Node{
+		
 	public InnerNode(String description) {
 		super(description);
 	}
 	
-	/*public InnerNode(String description,Node n1,Node n2,Node n3,Node n4) {
-		super(description);
-		this.n1 = n1;
-		this.n2 = n2;
-		this.n3 = n3;
-		this.n4 = n4;
-	}*/
-	
-	public abstract Node choosenext();
+	public Node choosenext() {
+		if (this.id == 16) {
+			if (Node.p.getAllie().getName().equals("Chantal")) {
+				return N[0];
+			}
+		}
+		if (this.id == 17) {
+			if (Node.p.getAllie().getName().equals("Les freres Gilbert")) {
+				return N[0];
+			}
+		}
+		if (this.id == 18) {
+			if (Node.p.getAllie().getName().equals("Dominique Apagnan")) {
+				return N[0];
+			}
+		}
+		if (this.id == 16) {
+			if (Node.p.getAllie().getName() == "Chantal") {
+				return N[0];
+			}
+		}
+		if (this.id == 16) {
+			if (Node.p.getAllie().getName() == "Chantal") {
+				return N[0];
+			}
+		}
+		if (this.id == 16) {
+			if (Node.p.getAllie().getName() == "Chantal") {
+				return N[0];
+			}
+		}
+		return N[1];
+	}
 }

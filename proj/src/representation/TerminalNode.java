@@ -1,7 +1,5 @@
 package representation;
 
-import java.util.Scanner;
-
 public class TerminalNode extends Node{
 	
 	public TerminalNode(String description) {
@@ -10,8 +8,5 @@ public class TerminalNode extends Node{
 	
 	public Node choosenext() {
 		return this;
-	}
-	
-	public void setScan(Scanner scanner) {
 	}
 }

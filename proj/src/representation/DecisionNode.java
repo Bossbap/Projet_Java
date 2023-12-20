@@ -4,21 +4,18 @@ import java.util.Scanner;
 
 public class DecisionNode extends InnerNode{
 	
-	private Scanner s;
-	
-	public void setScan(Scanner scanner) {
-		this.s = scanner;
-	}
+	public static Scanner s;
 		
 	public DecisionNode(String description) {
 		super(description);
 	}
 	
+	@Override
 	public Node choosenext() {
 		if (N.length == 1) {
 			return this.N[0];
 		}
-		int c = this.s.nextInt();
+		int c = DecisionNode.s.nextInt();
 		while (true) {
 			for (int i = 0; i<this.N.length;i++) {
 				if (i+1 == c) {

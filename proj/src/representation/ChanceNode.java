@@ -1,6 +1,7 @@
 package representation;
 
-import java.util.Scanner;
+import java.util.Random;
+
 
 public class ChanceNode extends InnerNode{
 	
@@ -8,11 +9,16 @@ public class ChanceNode extends InnerNode{
 		super(description);
 	}
 	
+	@Override
 	public Node choosenext() {
-		return this;
-	}
-	
-	public void setScan(Scanner scanner) {
+		if (this.id == 30) {
+			Random r = new Random();
+			boolean rrusse = r.nextBoolean();
+			if (rrusse) {
+				return N[0];
+			}
+		}
+		return N[1];
 	}
 	
 }
