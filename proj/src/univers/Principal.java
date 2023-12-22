@@ -1,8 +1,13 @@
 package univers;
+import java.io.Serializable;
 
-public class Principal extends Perso{
+/**
+* @author Hector Moreau
+*/
+@SuppressWarnings("serial")
+public class Principal extends Perso implements Serializable{
 	private int moralpt;
-	private Allie allie;
+	private Groupe allie;
 	public boolean vivant = true;
 	
 	public Principal(String n, Weapon w) {
@@ -11,11 +16,7 @@ public class Principal extends Perso{
 		allie = null;
 	}
 	
-	public void changeWeapon(Weapon w) {
-		this.weapon = w;
-	}
-	
-	public Allie getAllie() {
+	public Groupe getAllie() {
 		return this.allie;
 	}
 	
@@ -23,14 +24,10 @@ public class Principal extends Perso{
 		return this.moralpt;
 	}
 	
-	public void addAllie(Allie a) {
-		this.allie = a;
-	}
-	
 	@Override
 	public void presentation() {
 		super.presentation();
-		System.out.println("Vos points moraux: " + this.getMoralpt());
+		System.out.println("Points moraux: " + this.getMoralpt());
 		if (allie == null) {
 			System.out.println("Allie: Aucun");
 		}
@@ -39,32 +36,57 @@ public class Principal extends Perso{
 		}
 	}
 	
+	public void varw(Weapon w) {
+		this.weapon = w;
+	}
+	
+	public void addAllie(Groupe a) {
+		this.allie = a;
+	}
+	
+	/** 
+	 * Change les points moraux
+	 * @param m nombre de points moraux a ajouter au nombre actuel
+	 */
 	public void varmp(int m) {
 		System.out.println("");
 		if (m<0) {
-			System.out.println("Vous avez perdu "+ (-m) + " points moraux");
+			System.out.println("Tu as perdu "+ (-m) + " points moraux. Tu as maintenant " + (this.moralpt + m) + " points moraux");
 		}
 		else {
-			System.out.println("Vous avez gagne "+ m + " points moraux");
+			System.out.println("Tu as gagne "+ m + " points moraux. Tu as maintenant " + (this.moralpt + m) + " points moraux");
 		}
 		moralpt = moralpt + m;
-		System.out.println("Vous avez maintenant " + this.moralpt + " points moraux");
 	}
 	
-	@Override
+	/** 
+	 * Change le cash
+	 * @param c nombre de francs a ajouter au nombre actuel
+	 */
 	public void varc(int c) {
 		System.out.println("");
 		if (c<0) {
-			System.out.println("Vous avez perdu "+ (-c) + " francs");
+			System.out.println("Tu as perdu "+ (-c) + " francs. Tu as maintenant " + (this.cash + c) + " francs");
 		}
 		else {
-			System.out.println("Vous avez gagne "+ c + " francs");
+			System.out.println("Tu as gagne "+ c + " francs. Tu as maintenant " + (this.cash + c) + " francs");
 		}
 		cash = cash + c;
-		System.out.println("Vous avez maintenant " + this.cash + "francs");
 	}
 	
-	public void varw(Weapon w) {
-		weapon = w;
+	/** 
+	 * Change le cash sans afficher (Utiliser pour sauvegarder les parties afin de revenir a un personnage principal de base).
+	 * @param c nombre de francs a ajouter au nombre actuel
+	 */
+	public void varc_silent(int c) {
+		cash = cash+c;
+	}
+	
+	/** 
+	 * Change les points moraux sans afficher (Utiliser pour sauvegarder les parties afin de revenir a un personnage principal de base).
+	 * @param m nombre de points moraux a ajouter au nombre actuel
+	 */
+	public void varmp_silent(int m) {
+		moralpt = moralpt+m;
 	}
 }

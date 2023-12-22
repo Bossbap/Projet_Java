@@ -1,17 +1,20 @@
 package representation;
 
 
-/**Event is an interace that links the classes Nodes to the class NodeDecorator. It allows for Nodes to display an image/sound when being displayed.
+/**
+ * Event est une interface qui regroupe les noeuds du jeu et les noeuds decorateur. Cette interface permet de suivre des evenements in-game ainsi que des evenementsn de decoration.
  * @author Baptiste Geisenberger
  */
-public interface Event {
+public interface Event{
 	
-	/** describes the stage of the game the player is at with a text and/or image and/or sound
+	/** 
+	 * Decrit ou bien l'etape a laquelle se trouve un joueur, ou bien affiche une decoration
 	 */
 	public void display();
 	
-	/** chooses the next stage of the game
-	 * @return the next node that represents the stage of the game
+	/** 
+	 * Renvoie au prochain stage de la partie
+	 * @return le prochain noeud qui represente ce prochain stage.
 	 */
 	public Event choosenext();
 	

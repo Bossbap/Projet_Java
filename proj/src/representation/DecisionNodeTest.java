@@ -2,12 +2,16 @@ package representation;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
+import java.util.Arrays;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import univers.*;
 
 
 public class DecisionNodeTest {
@@ -23,6 +27,8 @@ public class DecisionNodeTest {
 		ntest = new DecisionNode("test");
 		scanner = new Scanner(System.in);
 		DecisionNode.s = scanner;
+		Principal princ = new Principal("test", new Weapons(""));
+		Node.p = princ;
 	}
 	
 	@AfterEach
@@ -36,10 +42,11 @@ public class DecisionNodeTest {
 		d2 = new DecisionNode("2");
 		d3 = new DecisionNode("3");
 		d4 = new DecisionNode("4");
-		Node[] Nist = {d1,d2,d3,d4};
+		List<Event> Nist = new ArrayList<Event>(Arrays.asList(d1,d2,d3,d4));
 		ntest.setNodes(Nist);
-		System.out.println("Choisir un numero qui n'est pas entre 1 et 4 pour voir si la selection d'un non choix fonctionne, puis 4");
-		assertEquals(d4,ntest.choosenext());
+		System.out.println("Choisir une chaine de caractere qui n'est pas un int ou numero qui n'est pas entre 1 et 4 pour voir si la selection d'un non choix fonctionne, puis 4");
+		Event res = ntest.choosenext();
+		assertEquals(d4,res);
 	}
 	
 }

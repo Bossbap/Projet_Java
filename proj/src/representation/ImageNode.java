@@ -4,15 +4,29 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * ImageNode permet d'afficher une image.
+ * @author Baptiste Geisenberger
+ */
+
 public class ImageNode extends NodeDecorator{
-	private Node nextNode;
+	private Event nextNode;
 	private String path;
 	
-	public ImageNode(Node n,String p) {
+	/**
+	 * Constructeur de classe qui permet de donner le prochain noeud dans la partie ainsi que le chemin du fichier image a ouvrir.
+	 * @param n prochain noeud de la partie
+	 * @param p chemin du fichier a ouvrir
+	 */
+	public ImageNode(Event n,String p) {
 		nextNode = n;
 		path = p;
 	}
 	
+	
+	/** 
+	 * Affiche l'image dans le chemin p, puis la fais disparaitre apres 10 secondes
+	 */
 	@Override
 	public void display() {
 		SwingUtilities.invokeLater(() -> {
@@ -41,7 +55,7 @@ public class ImageNode extends NodeDecorator{
 	}
 	
 	@Override
-	public Node choosenext() {
+	public Event choosenext() {
 		return nextNode;
 	}
 }

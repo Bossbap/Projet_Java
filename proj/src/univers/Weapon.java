@@ -1,6 +1,13 @@
 package univers;
 
-public abstract class Weapon {
+import java.io.Serializable;
+
+/** 
+ * Classe abstraite Weapon qui regroupe les armes a courte et longue portee
+ * @author Hector Moreau
+ */
+@SuppressWarnings("serial")
+public abstract class Weapon implements Serializable{
 	protected String name;
 	protected int order;
 	

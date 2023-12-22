@@ -1,11 +1,25 @@
 package univers;
 
-public abstract class Groupe {
+import java.io.Serializable;
+
+/** 
+ * Entite de personnes(s)
+ * @author Hector Moreau
+ */
+@SuppressWarnings("serial")
+public abstract class Groupe implements Serializable{
 	protected String name;
 	protected int cash;
 	protected String intro;
 	protected Weapon weapon;
 	
+	/**
+	 * Constructeur de groupe
+	 * @param n nom du groupe
+	 * @param c argent du groupe
+	 * @param in introduction du groupe
+	 * @param w arme du groupe
+	 */
 	public Groupe(String n, int c, String in, Weapon w) {
 		name = n;
 		cash = c;
@@ -25,10 +39,9 @@ public abstract class Groupe {
 		return this.cash;
 	}
 	
-	public void varc(int c) {
-		this.cash = this.cash + c;
-	}
-	
+	/** 
+	 * Presente l'entite (que ce soit un gang, un personnage ou le personnage principal)
+	 */
 	public abstract void presentation();
 	
 }

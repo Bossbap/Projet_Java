@@ -1,11 +1,19 @@
 package univers;
 
 import java.util.Random;
+import java.io.Serializable;
 
-public class Weapons extends Weapon{
+/** Armes de courte portee
+ * @author Hector Moreau
+ */
+@SuppressWarnings("serial")
+public class Weapons extends Weapon implements Serializable{
 	private Wshort weapon;
 	private int order;
 	
+	/** definit les armes de courte portee
+	 * @param n nom de l'arme
+	 */
 	public Weapons(String n) {
 		try {
 			this.weapon = Wshort.valueOf(n.toUpperCase());
@@ -23,11 +31,18 @@ public class Weapons extends Weapon{
 			order = 2;
 		case MACHETTE:
 			order = 3;
-		case SABRE:
+		case EPEE:
 			order = 4;
 		}
 	}
 	
+	public int getOrder() {
+		return this.order;
+	}
+	
+	/**
+	 * Comme Weaponl dans l'autre sens
+	 */
 	public boolean fight(Weapon w, Lieu l) {
 		if (w instanceof Weapons) {
 			if (this.order>w.order) {

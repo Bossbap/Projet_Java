@@ -1,9 +1,7 @@
 /**
  * 
  */
-/**
- * 
- */
+
 module proj {
 	requires java.desktop;
 	requires junit;

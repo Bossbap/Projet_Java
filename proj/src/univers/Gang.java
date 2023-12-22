@@ -1,6 +1,13 @@
 package univers;
+import java.io.Serializable;
 
-public class Gang extends Groupe implements Allie{
+/** 
+ * Represente un groupe de personnages
+ * @author Hector Moreau
+ */
+
+@SuppressWarnings("serial")
+public class Gang extends Groupe implements Serializable{
 	private Perso boss;
 	
 	public Gang(String n, int c, String in, Perso b, Weapon w) {
