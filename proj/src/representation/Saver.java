@@ -35,7 +35,7 @@ public class Saver implements Event, Serializable{
 			return currentNode;
 		}
 		this.save();
-		System.out.println("Souhaitez vous\n\n(1)Recommencer une partie\n\n(2)Quitter le jeu?");
+		System.out.println("Souhaitez vous\n\n(1)Recommencer une partie\n\n(2)Quitter le jeu");
 		int choix;
 		while (true) {
 			while(!DecisionNode.s.hasNextInt()) {
@@ -50,7 +50,7 @@ public class Saver implements Event, Serializable{
 				break;
 			}
 		}
-		if (choix == 0) {
+		if (choix == 1) {
 			Node.p.varc_silent(100-Node.p.getCash());
 			Node.p.varmp_silent(5-Node.p.getMoralpt());
 			Node.p.varw(new Weapons(""));

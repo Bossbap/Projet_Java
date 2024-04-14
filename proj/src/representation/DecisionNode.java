@@ -98,7 +98,7 @@ public class DecisionNode extends InnerNode implements Serializable{
 			Objet.alu = true;
 		}
 		if (id == 41) {
-			p.varc(-(4000 - Node.p.getMoralpt()*2));
+			p.varc(-(4000 - Node.p.getMoralpt()*100));
 		}
 		if (id == 43) {
 			p.varc(-1500);

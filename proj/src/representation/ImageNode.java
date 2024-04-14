@@ -3,13 +3,16 @@ package representation;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.Serializable;
+
 
 /**
  * ImageNode permet d'afficher une image.
  * @author Baptiste Geisenberger
  */
 
-public class ImageNode extends NodeDecorator{
+@SuppressWarnings("serial")
+public class ImageNode extends NodeDecorator implements Serializable{
 	private Event nextNode;
 	private String path;
 	

@@ -282,6 +282,5 @@ public class Histoire {
 		}
 		currentNode.display();
 		scanner.close();
-		
 	}
 }
